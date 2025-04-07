@@ -21,6 +21,16 @@
             }
             *rataRata = totalKecepatan / n; 
     }
+
+// Fungsi menghitung kecepatan tertinggi
+void hitungKecepatanTertinggi(double* kecepatan, int n, double* max) {
+    *max = kecepatan[0]; // Asumsikan kecepatan pertama adalah yang tertinggi
+    for (int i = 1; i < n; i++) {
+        if (kecepatan[i] > *max) {
+            *max = kecepatan[i]; // Update jika ditemukan kecepatan lebih tinggi
+        }
+    }
+}
     
 
 int main(){
@@ -68,6 +78,12 @@ int main(){
         double ratarataKecepatan;
             hitungRataRataKecepatan(kecepatan, n, &ratarataKecepatan);
             std::cout << "rata-rata kecepatan kendaraan selama perjalanan: " <<ratarataKecepatan << "km/jam" << std::endl;
+
+
+// Memanggil fungsi hitungKecepatanTertinggi
+    double kecepatanTertinggi;
+    hitungKecepatanTertinggi(kecepatan, n, &kecepatanTertinggi);
+    std::cout << "Kecepatan tertinggi adalah: " << kecepatanTertinggi << " km/jam" << std::endl;
 
 
 //menghapus array dinamis supaya tidak crash
